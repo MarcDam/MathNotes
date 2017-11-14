@@ -1,0 +1,31 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{The Derivative}
+This section will introduce the derivative and try to build some intuition around it. We will start by considering a line between two points.
+\begin{wrapfigure}{r}{0.4\linewidth}
+\begin{center}
+\begin{tikzpicture}
+\draw[->] (-1,0) -- (5,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,3.5) node[above] {$y$};
+\draw[scale=1,domain=-1:4,smooth,variable=\x,blue] plot ({\x},{0.5*\x+1});
+\filldraw (1,1.5) circle[radius=1.5pt];
+\node[above] at (1, 1.5) {$(x_0, y_0)$};
+\filldraw (3,2.5) circle[radius=1.5pt];
+\node[above] at (3, 2.5) {$(x_1, y_1)$};
+\end{tikzpicture}
+\end{center}
+\end{wrapfigure}
+If we know two points $(x_0, y_0)$ and $(x_1, y_1)$ we can compute the slope $a$ of the line connecting the two points with the formula
+\begin{equation}
+a = \frac{y_1 - y_0}{x_1 - x_0}. \label{eq:slope}
+\end{equation}
+When computing this slope it is very important that the two points are distinct so that we do not divide by zero. The fundamental idea behind the derivative is to let the two points approach each other such that the line connecting the two points on the curve becomes tangent to the curve. Thus the derivative $f'(x_0)$ of a function $f(x)$ at a point $x_0$ is defined by being the limit of equation~\eqref{eq:slope} when $x_1$ goes to $x_0$.
+\begin{definition}[The derivative]
+The derivative $f'(x)$ of a function $f(x)$ is defined by
+\begin{equation}
+\frac{f(x) - f(x_0)}{x - x_0} \xrightarrow{x \to x_0} f'(x).
+\end{equation}
+\end{definition}
+The derivative of a function $f$ is sometimes written as $\diff{f}{x}$.
+%Write an example with bacterial growth
+\end{document}

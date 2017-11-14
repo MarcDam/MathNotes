@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[american]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{thmtools}
+\declaretheorem[style=definition,numberwithin=section]{example}
+\renewcommand\thmcontinues[1]{Continued}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\pgfplotsset{samples=200}
+\usepackage{subfiles}
+\usepackage{url}
+\usepackage[numbib,nottoc]{tocbibind}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\let\epsilon\varepsilon
+\usepackage[bookmarks,hidelinks]{hyperref}
+\usepackage[square]{natbib}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+\author{Nathan Hugh Barr \and Marc John Bordier Dam}
+\title{Notes for Differential Calculus}
+\subtitle{A Brief Overview}
+\linespread{1.3}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\subfile{intro.tex}
+\subfile{increasing_decreasing.tex}
+
+\bibliographystyle{unsrtnat}
+\bibliography{ref.bib}
+\end{document}

@@ -1,0 +1,132 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Increasing and Decreasing Functions}
+An important application of differential calculus is to determine whether a function is increasing or decreasing as well as determine where the function has local minima and maxima. Below we will define what it means to be increasing, decreasing and what local minima and maxima are. Then we will see how the derivative allows us to determine the when a function has the aforementioned properties.
+
+\begin{definition}[Increasing and Decreasing]
+A function $f$ is said to be increasing if and only if
+\begin{equation}
+x < y \Rightarrow f(x) \leq f(y).
+\end{equation}
+Likewise a function $f$ is said to be decreasing if and only if
+\begin{equation}
+x < y \Rightarrow f(x) \geq f(y).
+\end{equation}
+\end{definition}
+We illustrate the above definition with a few examples.
+\begin{figure}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\draw[->] (-3,0) -- (3,0) node[right] {$x$};
+\draw[->] (0,-2.5) -- (0,3.5) node[above] {$f(x)$};
+\draw[scale=1,domain=-1.5:2,smooth,variable=\x,blue] plot ({\x},{1.5*\x});
+\draw[scale=1,domain=-1.5:2,smooth,variable=\x,red] plot ({\x},{-0.4*\x+1});
+\end{tikzpicture}
+\caption{Two linear functions. One increasing (blue) and one decreasing (red).}
+\end{minipage}
+\quad
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\draw[->] (-3,0) -- (3,0) node[right] {$x$};
+\draw[->] (0,-2.5) -- (0,3.5) node[above] {$f(x)$};
+\draw[scale=1,domain=-2:2,smooth,variable=\x,red] plot ({\x},{\x*\x});
+\end{tikzpicture}
+\caption{The parabola described by $f(x) = x^2$. It is increasing for $x \geq 0$ and decreasing for $x \leq 0$.}
+\end{minipage}
+\end{center}
+\end{figure}
+
+\begin{example}[Linear Functions]
+If we have a linear function $f(x) = a x + b$ then the constant $a$ determines whether it is increasing or decreasing. If $a \geq 0$ then a linear function is increasing e.g. $g(x) = 5x + 2$ or $h(x) = 8x - 3$. If $a \leq 0$ then a linear function is decreasing e.g. $g(x) = -\frac{3}{2} x + 7$ or $h(x) = - 313 x - 1$. Note that only the slope $a$ and not the constant $b$ determines whether a linear function is increasing or decreasing.
+\end{example}
+\begin{example}[A Parabola]
+For linear functions it was the case that they were increasing everywhere or decreasing everywhere. This is not the case for parabolas. The simplest parabola is described by the function $f(x) = x^2$. This function is decreasing for negative values of $x$ but increasing for positive values of $x$. Thus whether a function is increasing or decreasing depends on which interval we are considering.
+\end{example}
+In the examples above we considered simple functions where it was easy to tell when the functions were increasing or decreasing. For more complicated functions we can use the derivative to find out when a function is increasing or decreasing.
+\begin{theorem}
+If $f'(x)$ is positive on the interval $(a, b)$ then $f(x)$ is increasing on the interval $(a, b)$. If $f'(x)$ is negative on the interval $(c, d)$ then $f(x)$ is decreasing on the interval $(c, d)$.
+\end{theorem}
+
+\begin{figure}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain=0.01:3, blue] {ln(x) - x^2};
+\end{axis}
+\end{tikzpicture}
+\caption{$f(x) = \ln x - x^2$}
+\end{minipage}
+\quad
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain=-10:5, red] {2*x^3 + 12*x^2 - 30*x - 7};
+\end{axis}
+\end{tikzpicture}
+\caption{$f(x) = 2 x^3 + 12 x^2 - 30 x - 7$}
+\end{minipage}
+\end{center}
+\end{figure}
+
+Let us apply our new tool to some examples.
+\begin{example}[label=ex:logSquare]
+Consider the function $f(x) = \ln x - x^2$. This function is only defined for $x > 0$. We differentiate it with the sum/difference rule:
+\begin{equation}
+f'(x) = \left(\ln x - x^2 \right)' = \left( \ln x \right)' - \left( x^2 \right)' = \frac{1}{x} - 2 x.
+\end{equation}
+If the derivative has to change sign, it has to be $0$ first. Thus if we can find where the derivative is $0$ and then check inbetween then we know where it is increasing and where it is decreasing. Thus we solve the following equation:
+\begin{equation}
+f'(x) = 0 \Leftrightarrow \frac{1}{x} - 2 x = 0 \Leftrightarrow \frac{1}{x} = 2 x \Leftrightarrow 1 = 2 x^2 \Leftrightarrow \frac{1}{2} = x^2 \Leftrightarrow x = \pm \frac{1}{\sqrt{2}}.
+\end{equation}
+Since $f(x)$ is only defined for positive $x$ we disregard the solution $x = - \frac{1}{\sqrt{2}}$. Thus we have to check the sign of the derivative on the intervals $\left( 0, \frac{1}{\sqrt{2}} \right)$ and $\left( \frac{1}{\sqrt{2}}, \infty \right)$. We check the derivative in the points $x = \frac{1}{2}$ and $x = 1$:
+\begin{equation}
+f' \left( \frac{1}{2} \right) = \frac{1}{\left( \frac{1}{2}\right)} - 2 \cdot \frac{1}{2} = 2 - 1 = 1
+\end{equation}
+and
+\begin{equation}
+f'(1) = \frac{1}{1} - 2 \cdot 1 = 1 - 2 = -1.
+\end{equation}
+Since $f' \left( \frac{1}{2} \right)$ is positive $f(x)$ is increasing on the interval $\left( 0, \frac{1}{\sqrt{2}} \right)$. Likewise since $f'(1)$ is negative the function is decreasing on the interval $\left( \frac{1}{\sqrt{2}}, \infty \right)$.
+\end{example}
+\begin{example}[label=ex:thirdPoly]
+We now consider the polynomial $f(x) = 2 x^3 + 12 x^2 - 30 x - 7$. We differentiate it with the sum/difference rule and the constant rule
+\begin{align}
+f'(x) = \left( 2 x^3 + 12 x^2 - 30 x - 7 \right)' &= 2 \left( x^3 \right) ' + 12 \left( x^2 \right)' - 30 \left( x \right)' - \left( 7 \right)' \\
+&= 6 x^2 + 24 x - 30.
+\end{align}
+We then solve the equation $f'(x) = 0$ by factoring:
+\begin{equation}
+f'(x) = 0 \Leftrightarrow 6 x^2 + 24 x - 30 = 0 \Leftrightarrow x^2 + 4 x - 5 = (x - 1) (x + 5) = 0.
+\end{equation}
+Thus the zero-product property tells us that either $x - 1 = 0 \Leftrightarrow x = 1$ or $x + 5 = 0 \Leftrightarrow x = - 5$. Since there are two solutions we have three intervals on which we have to determine the sign of $f'(x)$: $(-\infty, -5)$, $(-5, 1)$ and $(1, \infty)$. We check the derivative in the points $x = -10$, $x = 0$ and $x = 10$:
+\begin{equation}
+f'(-10) = 6 \cdot (-10)^2 + 24 \cdot (-10) - 30 = 600 - 240 - 30 = 330,
+\end{equation}
+\begin{equation}
+f'(0) = 6 \cdot 0^2 + 24 \cdot 0 - 30 = -30
+\end{equation}
+and
+\begin{equation}
+f'(10) = 6 \cdot 10^2 + 24 \cdot 10 - 30 = 600 + 240 - 30 = 810.
+\end{equation}
+Thus $f(x)$ is increasing on the interval $(-\infty, -5)$, decreasing on the interval $(-5, 1)$ and increasing on the interval $(1, \infty)$.
+\end{example}
+\subsection{Maxima and Minima}
+With our knowledge of when a function is increasing or decreasing we can find the minima and maxima of a function. First a definition.
+\begin{definition}[Local minima and maxima]
+A function $f$ has a local minimum at $x_0$ if and only if $f(x) \geq f(x_0)$ for all $x$ close to $x_0$. A function $f$ has a local maximum if and only if $f(x) \leq f(x_0)$ for all $x$ close to $x_0$.
+\end{definition}
+We connect this definition with derivatives through the following theorem.
+\begin{theorem}
+If $f'(x_0) = 0$ and $f'(x)$ is positive on the left side of $x_0$ and $f'(x)$ is negative on the right side of $x_0$ then $f(x)$ has a maximum at $x_0$. If $f'(x_0) = 0$ and $f'(x)$ is negative on the left side of $x_0$ and $f'(x)$ is positive on the right side of $x_0$ then $f(x)$ has a minimum at $x_0$.
+\end{theorem}
+With this theorem in hand we revisit example~\ref{ex:logSquare} and example~\ref{ex:thirdPoly}.
+\begin{example}[continues=ex:logSquare]
+We found earlier that the derivative $f'(x) = \frac{1}{x} - 2 x$ was zero when $x = \frac{1}{\sqrt{2}}$ and that $f'(x)$ was positive to the left of $x = \frac{1}{\sqrt{2}}$ and negative to the right of $x = \frac{1}{\sqrt{2}}$. Thus the function $f(x) = \ln x - x^2$ has a maximum at $x = \frac{1}{\sqrt{2}}$.
+\end{example}
+\begin{example}[continues=ex:thirdPoly]
+Here we found that the derivative $f'(x) = 6 x^2 + 24 x - 30$  was zero when $x = -5$ or when $x = 1$. Since we found that the derivative is positive to the left of $x = -5$ and negative to the right of $x = -5$ inbetween $x = -5$ and $x = 1$, it follows that $f(x)$ has a maximum at $x = -5$. Similarly since the derivative was negative to the left of $x = 1$ inbetween $x = -5$ and $x = 1$ and positive to the right of $x = 1$, $f(x)$ has a minimum at $x = 1$.
+\end{example}
+\end{document}
