@@ -27,5 +27,33 @@ The derivative $f'(x)$ of a function $f(x)$ is defined by
 \end{equation}
 \end{definition}
 The derivative of a function $f$ is sometimes written as $\diff{f}{x}$.
-%Write an example with bacterial growth
+
+\begin{figure}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$t$,ylabel=$N(t)$,enlargelimits]
+\addplot[domain=0:10, red] {1/(1+exp(-(x-5)))};
+\end{axis}
+\end{tikzpicture}
+\caption{Number of bacteria} \label{fig:bacteria}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$t$,ylabel=$N'(t)$,enlargelimits]
+\addplot[domain=0:10, red] {exp(-(x-5))/(1+exp(-(x-5)))^2};
+\end{axis}
+\end{tikzpicture}
+\caption{The derivative} \label{fig:bacteriaDerivative}
+\end{minipage}
+\end{center}
+\end{figure}
+
+To illustrate the derivative we consider the growth of some bacteria. The growth is illustrated in figure~\ref{fig:bacteria}. If we want to know how fast the bacteria is growing at some point we can estimate the slope by taking two points on the curve. For example we can estimate the slope at $t = 5$ by taking the points $(4, 0.27)$ and $(6, 0.73)$. This gives a slope of the line between the two points which is
+\begin{equation}
+a = \frac{0.73 - 0.27}{6 - 4} = 0.23.
+\end{equation}
+As we see from figure~\ref{fig:bacteriaDerivative} this is a pretty good approximation of the derivative at the point $t = 5$. If we chose two points which were closer we would get a better approximation.
+
+In this example the derivative is an expression for how much the bacteria grows at a certain instant. Early on when there is not a lot of bacteria, the derivative is small and the bacteria grows slowly. Around $t = 5$ the bacteria grows fast and the derivative is large. At a later time, when the number of bacteria is close to the carrying capacity of the system the growth is slow and the derivative is again small. It is important to remember that the tangent is the best linear approximation to the curve and thus the growth rate given by the derivative tells us about the growth in a short timespan close to the point in question.
 \end{document}
