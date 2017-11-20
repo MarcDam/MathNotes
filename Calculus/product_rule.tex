@@ -1,0 +1,72 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Product Rule}
+With the table of simple functions we can differentiate a lot of functions, and with the constant rule and sum rule we can differentiate even more. After learning how to differentiate a sum the natural follow up is to differentiate a product of two functions. The question we want to answer is thus: If we know the derivatives $f'(x)$ and $g'(x)$ of the two functions $f(x)$ and $g(x)$ then what is the derivative of their product $f(x) g(x)$?
+
+Before we answer this question we remind ourselves of the definition of the derivative:
+\begin{equation}
+\lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} = f'(x_0).
+\end{equation}
+For small values of $\Delta x$ the fraction $\frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$ is a good approximation of the derivative. If we isolate $f(x_0 + \Delta x)$ we get that
+\begin{equation}
+f(x_0 + \Delta x) \approx f(x_0) + f'(x_0) \Delta x.
+\end{equation}
+What this says is that close to the point $x_0$ the tangent is a good approximation to the function. With this idea in mind we are ready to explore the product rule.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\draw (0,0)  -| (8,-6) 
+    node[pos=0.25,above] {$f(x_0)$} 
+    -| (0,0) node[pos=0.75,left,rotate=90,anchor=south] {$g(x_0)$};
+\draw (0,-6.25)  -| (8,-8) 
+    -| (0,-6.25) node[pos=0.25,below] {$f(x_0)$}
+    node[pos=0.75,left,rotate=90,anchor=south] {$g'(x_0) \Delta x$};
+\draw (8.25,0)  -| (10,-6) 
+    node[pos=0.25,above] {$f'(x_0) \Delta x$} 
+    node[pos=0.75,right,rotate=-90,anchor=south] {$g(x_0)$}
+    -| (8.25,0);
+\draw (8.25,-6.25)  -| (10,-8) 
+    node[pos=0.75,right,rotate=-90,anchor=south] {$g'(x_0) \Delta x$} 
+    -| (8.25,-6.25) node[pos=0.25,below] {$f'(x_0) \Delta x$};
+\end{tikzpicture}
+\caption{The product rule illustrated by changing areas} \label{fig:prodRule}
+\end{center}
+\end{figure}
+
+When considering a product of two functions $f(x)$ and $g(x)$ we can picture the product $f(x_0) g(x_0)$ as the rectangle where one side has length $f(x_0)$ and the other side has length $g(x_0)$ as in figure~\ref{fig:prodRule}. When we change $x$ a little the area of the rectangle changes from $f(x_0) g(x_0)$ to $f(x_0 + \Delta x) g(x_0 + \Delta x)$. Remember now that for small $\Delta x$ the tangent is a good approximation to the function. This means that as in figure~\ref{fig:prodRule} we can divide that added area into three rectangles: One with side lengths $g'(x_0) \Delta x$ and $f(x_0)$, one with side lengths $f'(x_0) \Delta x$ and $g(x_0)$ and one with side lengths $f'(x_0) \Delta x$ and $g'(x_0) \Delta x$. If $\Delta x$ is small the rectangle with side lengths $f'(x_0) \Delta x$ and $g'(x_0) \Delta x$ is very small and can be neglected. Thus if we add the areas of the remaining rectangles we get that
+\begin{equation}
+f(x_0 + \Delta x) g(x_0 + \Delta x) \approx f(x_0) g(x_0) + g(x_0) f'(x_0) \Delta x + f(x_0) g'(x_0) \Delta x,
+\end{equation}
+which we can rearrange to get
+\begin{equation}
+\frac{f(x_0 + \Delta x) g(x_0 + \Delta x) - f(x_0) g(x_0)}{\Delta x} \approx f'(x_0) g(x_0) + f(x_0) g'(x_0).
+\end{equation}
+Letting $\Delta x$ go to zero we arrive at the product rule:
+\begin{equation}
+\left( f(x_0) g(x_0) \right)' = f'(x_0) g(x_0) + f(x_0) g'(x_0).
+\end{equation}
+With the product rule we can differentiate functions which we were unable to differentiate previously.
+\begin{example}
+Consider the function $h(x) = x^2 e^x$. We can differentiate this with the product rule by letting $f(x) = x^2$ and $g(x) = e^x$:
+\begin{equation}
+h'(x) = \left( x^2 e^x \right)' = \left( x^2 \right)' e^x + x^2 \left( e^x \right)' = 2 x e^x + x^2 e^x = \left( 2 x + x^2 \right) e^x.
+\end{equation}
+\end{example}
+\begin{example}
+Sometimes we have to apply the product rule multiple times. Consider the function $h(x) = x^3 \ln (x) \cos (x)$. First we let $f_1(x) = x^3 \ln x$ and $g_1(x) = \cos x$. Then
+\begin{align}
+h'(x) = f_1'(x) g_1(x) + f_1(x) g_1'(x) &= f_1'(x) \cos x + x^3 \ln x \left( \cos x \right)' \nonumber \\
+&= \left(x^3 \ln x \right)' \cos x - x^3 \ln (x) \sin x, \label{eq:prodProdEx}
+\end{align}
+but we are not done. We need to use the product rule to find $f_1'(x) = \left( x^3 \ln x \right)'$. To do this we let $f_2(x) = x^3$ and $g_2(x) = \ln x$. Then we get that
+\begin{align}
+f_1'(x) = \left( x^3 \right)' \ln x + x^3 \left( \ln x \right)' = 3 x^2 \ln x + x^3 \cdot \frac{1}{x} &= 3 x^2 \ln x + x^2 \nonumber \\
+&= x^2 \left( 3 \ln x + 1 \right).
+\end{align}
+Combining this with equation~\ref{eq:prodProdEx} we finally find that
+\begin{equation}
+h'(x) = \left(x^3 \ln x \right)' \cos x - x^3 \ln (x) \sin x = x^2 \left( 3 \ln x + 1 \right) \cos x - x^3 \ln (x) \sin x.
+\end{equation}
+\end{example}
+\end{document}
