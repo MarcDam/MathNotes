@@ -1,0 +1,36 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{The Chain Rule}
+In addition to adding and multiplying functions it often happens that functions are composed. To differentiate the composition of two functions we use the chain rule. If $f(x)$ and $g(x)$ are functions such that $h(x) = f(g(x))$, then we call $f(x)$ the outer function and $g(x)$ the inner function. The chain rule says that
+\begin{equation}
+h'(x) = \left( f \left( g(x) \right) \right)' = f' \left(g(x) \right) g'(x).
+\end{equation}
+In words the chain rule says that the derivative of a composition of two functions is the derivative of the outer function evaluated at the inner function multiplied by the derivative of the inner function.
+
+We illustrate the chain rule with a number of examples.
+\begin{example}
+Consider the function $h(x) = \ln (x^3)$. We can differentiate this function in two ways: With the chain rule or by using our logarithm rules. We will do both and see that we get the same answer. Using the logarithm rules we can rewrite $\ln (x^3)$ as $3 \ln x$ which has the derivative $\frac{3}{x}$. If we want to use the chain rule we have to identify the inner and outer functions. Here the inner function $g(x)$ is $x^3$ and the outer function $f(x)$ is $\ln x$. Therefore the chain rule gives us that
+\begin{equation}
+h'(x) = f'(g(x))g'(x) = \left. \left( \ln x \right)' \right\rvert_{x^3} \left( x^3 \right)' = \left. \frac{1}{x} \right\rvert_{x^3} \left(3 x^2 \right) = \frac{1}{x^3} \cdot 3 x^2 = \frac{3}{x}.
+\end{equation}
+\end{example}
+\begin{example}
+Consider the function $h(x) = \sqrt{1 + x^2}$. This function can be written as $f(g(x))$. The outer function $f(x)$ is $\sqrt{x}$ and the inner function $g(x)$ is $1 + x^2$. Thus the derivative of $h(x)$ is
+\begin{equation}
+h'(x) = f'(g(x)) g'(x) = \left.\left(\sqrt{x} \right)'\right\rvert_{1 + x^2} \left( 1 + x^2 \right)' = \left. \frac{1}{2 \sqrt x} \right\rvert_{1 + x^2} \left(2 x \right) = \frac{x}{\sqrt{1 + x^2}}.
+\end{equation}
+\end{example}
+\begin{example}
+Consider the function $h(x) = e^{\sin x}$. This function can be written as $f(g(x))$ where the outer function $f(x)$ is $e^x$ and the inner function $g(x)$ is $\sin x$. Hence the derivative is
+\begin{equation}
+h'(x) = f'(g(x))g'(x) = \left.\left( e^x \right)' \right\rvert_{\sin x} \left( \sin x \right)' = \left. e^x \right\rvert_{\sin x} \cos x = e^{\sin x} \cos x.
+\end{equation}
+\end{example}
+\begin{example}
+It can occur that there is more than one inner function. When this happens we apply the chain rule multiple times. Consider the function $h(x) = \left( \cos \left( x^3 \right) \right)^2$. Here we have two inner functions $x^3$ and $\cos x$ as well as two outer functions $\cos x$ and $x^2$. Since we have two pairs of inner and outer functions we have to use the chain rule twice:
+\begin{align}
+h'(x) = \left. \left( x^2 \right)' \right\rvert_{\cos \left( x^3 \right)} \left. \left( \cos x \right)' \right\rvert_{x^3} \left( x^3 \right)' &= \left. 2 x \right\rvert_{\cos \left( x^3 \right)} \left. \left(-\sin x \right)\right\rvert_{x^3} \left( 3 x^2 \right) \nonumber \\
+&= -6 x^2 \cos \left( x^3 \right) \sin \left( x^3 \right).
+\end{align}
+\end{example}
+\end{document}
