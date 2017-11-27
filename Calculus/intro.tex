@@ -56,4 +56,49 @@ a = \frac{0.73 - 0.27}{6 - 4} = 0.23.
 As we see from figure~\ref{fig:bacteriaDerivative} this is a pretty good approximation of the derivative at the point $t = 5$. If we chose two points which were closer we would get a better approximation.
 
 In this example the derivative is an expression for how much the bacteria grows at a certain instant. Early on when there is not a lot of bacteria, the derivative is small and the bacteria grows slowly. Around $t = 5$ the bacteria grows fast and the derivative is large. At a later time, when the number of bacteria is close to the carrying capacity of the system the growth is slow and the derivative is again small. It is important to remember that the tangent is the best linear approximation to the curve and thus the growth rate given by the derivative tells us about the growth in a short timespan close to the point in question.
+
+\section{Differentation Rules}
+
+The following is a table with useful differentation rules which should be memorised:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|L|L|}
+	\hline 
+f(x)	& f'(x)  \\ 
+	\hline  
+k	& 0  \\ 
+	\hline
+kx	& k  \\ 
+	\hline  
+kx^n	& nkx^{n-1}  \\ 
+	\hline 
+ln(kx)	& \frac{1}{x}  \\ 
+	\hline 
+e^{kx}	& ke^{kx}  \\ 
+	\hline
+a^x     & ln(a) \cdot a^x \\
+	\hline
+\sqrt{x} & \frac{1}{2}x^{-\frac{1}{2}} \\  
+	\hline
+log_{10}(kx)	& \frac{1}{xln(10)}  \\ 
+	\hline 
+sin(x)	& cos(x)  \\ 
+	\hline 
+cos(x)	& -sin(x)  \\ 
+	\hline 
+\end{tabular}
+\end{table}
+
+When differentiating a sum of functions, the functions can be differentiated one term at a time. The following is this expressed mathematically:
+
+\begin{equation}
+\frac{d}{dx}(f(x)\pm g(x)\pm h(x)) = \frac{df(x)}{dx} \pm \frac{dg(x)}{dx} \pm \frac{dh(x)}{dx}
+\end{equation}
+
+When differentiating a factor multiplied with a function, the function is the only factor differentiated. The following is this expressed mathematically
+\begin{equation}
+\frac{d}{dx} (k \cdot f(x)) = k \cdot \frac{df(x)}{dx}
+\end{equation}
+	
 \end{document}

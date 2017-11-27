@@ -6,6 +6,8 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{array}   % for \newcolumntype macro
+\usepackage{float}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
@@ -28,6 +30,7 @@
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 \let\epsilon\varepsilon
 \usepackage[bookmarks,hidelinks]{hyperref}
 \usepackage[square]{natbib}
