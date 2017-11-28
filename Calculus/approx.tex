@@ -1,0 +1,61 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Approximation and Taylor polynomial}
+
+Some problems are too difficult to solve exactly, but can be approximated close to a point with great accuracy by a simply mathematical tool. We have already seen an approximation in equation \ref{linapprox}, i have taken the liberty to change the names of the points on the x-axis in the equation: 
+\begin{equation}
+f(x) \approx L(x) = f(a) + f'(a)(x-a)
+\end{equation}
+This equation states that the approximated value of the function at the point $x$ on the x-axis can be calculated by the function value at the point $a$ plus the derivative at $a$ multiplied by the length between the point $x$ and $a$ on the x-axis. In other words using differentials, we can see how the function behaves close to a point. The above function is the definition for the \textbf{linearization} of the function $f$ about $a$ is the function $L$, where $f(x) \approx L(x)$ provides linear approximations for the values of the function near $a$. The error of the approximation is defined by
+
+\begin{align}
+\mathtt{error} \; =& \; \mathtt{true \; value} - \mathtt{approximate \; value} \\
+E(x) =& f(x) - L(x) = f(x) - f(a) - f'(a)(x-a)
+\end{align}
+
+But how can we approximate the behaviour the function better and with less error. We use the Taylor polynomial to approximate the function. The linearization is a polynomial of degree $1$. The Taylor polynomial lets us approximate the function using higher degree polynomials about a point $a$. The Taylor polynomial is defined by:
+
+\begin{equation}
+P_n(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ... + \frac{f^{(n)}(a)}{n!}(x-a)^n,
+\end{equation}      
+
+The factorial $n!$ is defined as $n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1$, $f'(a)$ is the first derivative at $a$, $f''(a)$ is the second derivative (differentiate $f'(a)$ again), $f^{(n)}$ is the n th derivative. Let delve into this new mathematical tool through an example.
+
+\begin{example}
+Lets find the second order Taylor polynomial of the function $f(x) = \sqrt{x}$ about $a=25$. Lets first write the the second order Taylor polynomial $P_2(x)$ mathematically:
+
+\begin{equation}
+P_2(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2
+\end{equation}
+We stopped at the third term because we have the second order derivative of $f(a)$. If we wanted the third order Taylor polynomials we would have to go to the fourth term were we have the third order derivative. The first derivative of $f(x)$ is $f(x)=\frac{1}{2}x^{-1/2}$ and the second derivative is $f''(x) = -\frac{1}{4}x^{-3/2}$. Now lets slowly begin to place the derivatives in the second order Taylor polynomial and place $a=25$.
+
+\begin{align}
+P_2(x) =& f(25) +f'(25)(x-25) + \frac{f''(25)}{2}(x-25)^2\\
+=& \sqrt{25} + \frac{1}{2}(25)^{-1/2}(x-25) -\frac{1}{8}x^{-3/2}(x-25)^2 \\
+=& 5 + \frac{1}{10}(x-25) - \frac{1}{1000}(x-25)^2 \\
+=& -\frac{x^2}{1000} + \frac{3}{20}x + 1.875
+\end{align}  
+So what do we have here? We have a second order polynomial that approximates the function values of $f(x)=\sqrt{x}$ around the point $a=25$. Lets see what function value we get out in both for $x = 26$:
+
+\begin{equation}
+f(25) = \sqrt{25} = 5.0990
+\end{equation}
+
+\begin{equation}
+P_2(25) = -\frac{25^2}{1000} + \frac{3}{20}25 + 1.875 = 5.0990
+\end{equation}
+
+So the second order polynomial approximates the function value at $x = 26$ exactly. What if we want to approximate the function value at $x=35$:
+
+\begin{equation}
+f(35) = \sqrt{35} = 5.9161
+\end{equation}
+
+\begin{equation}
+P_2(35) = -\frac{35^2}{1000} + \frac{3}{20}35 + 1.875 = 5.9000
+\end{equation}
+
+We can see that the second order polynomial is quiet close to the function value. 
+ 
+\end{example}
+\end{document}
