@@ -38,14 +38,14 @@ P_2(x) =& f(25) +f'(25)(x-25) + \frac{f''(25)}{2}(x-25)^2\\
 So what do we have here? We have a second order polynomial that approximates the function values of $f(x)=\sqrt{x}$ around the point $a=25$. Lets see what function value we get out in both for $x = 26$:
 
 \begin{equation}
-f(25) = \sqrt{25} = 5.099
+f(26) = \sqrt{26} = 5.099
 \end{equation}
 
 \begin{equation}
-P_2(25) = -\frac{25^2}{1000} + \frac{3}{20}25 + \frac{15}{8} = 5.099
+P_2(26) = -\frac{26^2}{1000} + \frac{3}{20} \cdot 26 + \frac{15}{8} = 5.099
 \end{equation}
 
-So the second order polynomial approximates the function value at $x = 26$ exactly. What if we want to approximate the function value at $x=35$:
+So the second order polynomial approximates the function value at $x = 26$ to four decimal places exactly. What if we want to approximate the function value at $x=35$:
 
 \begin{equation}
 f(35) = \sqrt{35} = 5.9161
@@ -55,7 +55,63 @@ f(35) = \sqrt{35} = 5.9161
 P_2(35) = -\frac{35^2}{1000} + \frac{3}{20}35 + \frac{15}{8} = 5.9000
 \end{equation}
 
-We can see that the second order polynomial is quiet close to the function value. 
+We can see that the second order polynomial is quite close to the function value. 
+
+\begin{figure}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain=0:40, blue] {sqrt(x)};
+\addplot[domain=0:40, red] {-x^2/1000 + 3*x/20 + 15/8};
+\end{axis}
+\end{tikzpicture}
+\caption{The blue graph is $f(x) = \sqrt x$ and the red $-\frac{x^2}{1000} + \frac{3}{20}x + \frac{15}{8}$}
+\end{minipage}
+\quad
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain=0:40, red] {sqrt(x)-(-x^2/1000 + 3*x/20 + 15/8)};
+\end{axis}
+\end{tikzpicture}
+\caption{$E(x) = \sqrt x - (-\frac{x^2}{1000} + \frac{3}{20}x + \frac{15}{8}) $}
+\end{minipage}
+\end{center}
+\end{figure}
  
+\end{example}
+
+\begin{example}
+Let us now look at the function $f(x)=\sin(x)$ and find the fifth order Taylor polynomial around $a=0$.
+\begin{align}
+P_5(x) =& f(0) + \frac{f'(0)}{1!}(x-0) + \frac{f''(0)}{2!}(x-0)^2 + \frac{f'''(0)}{3!}(x-0)^3 + \frac{f''''(0)}{4!}(x-0)^4 + \frac{f'''''(0)}{5!}(x-0)^5 \\
+=& \sin(0) + \cos(0)x - \frac{\sin(0)}{2}x^2-\frac{\cos(0)}{6}x^3+\frac{\sin(0)}{24}x^4+\frac{\cos(0)}{120}x^5 \\
+=& 0 + x + -\frac{1}{6}x^3+0+\frac{1}{120}x^5
+\end{align}
+
+\begin{figure}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain =0:2, blue] {sin(deg(x))};
+\addplot[domain =0:2, red] {x};
+\end{axis}
+\end{tikzpicture}
+\caption{The blue graph represents $f(x) = \sin(x)$ and the red $f(x)= x$}
+\end{minipage}
+\quad
+\begin{minipage}[t]{0.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain=0:2, red] {sin(deg(x))-x};
+\end{axis}
+\end{tikzpicture}
+\caption{$E(x) = \sin(x)-x$}
+\end{minipage}
+\end{center}
+\end{figure}
+
 \end{example}
 \end{document}
