@@ -33,16 +33,16 @@ We stopped at the third term because we have the second order derivative of $f(a
 P_2(x) =& f(25) +f'(25)(x-25) + \frac{f''(25)}{2}(x-25)^2\\
 =& \sqrt{25} + \frac{1}{2}(25)^{-1/2}(x-25) -\frac{1}{8}x^{-3/2}(x-25)^2 \\
 =& 5 + \frac{1}{10}(x-25) - \frac{1}{1000}(x-25)^2 \\
-=& -\frac{x^2}{1000} + \frac{3}{20}x + 1.875
+=& -\frac{x^2}{1000} + \frac{3}{20}x + \frac{15}{8}
 \end{align}  
 So what do we have here? We have a second order polynomial that approximates the function values of $f(x)=\sqrt{x}$ around the point $a=25$. Lets see what function value we get out in both for $x = 26$:
 
 \begin{equation}
-f(25) = \sqrt{25} = 5.0990
+f(25) = \sqrt{25} = 5.099
 \end{equation}
 
 \begin{equation}
-P_2(25) = -\frac{25^2}{1000} + \frac{3}{20}25 + 1.875 = 5.0990
+P_2(25) = -\frac{25^2}{1000} + \frac{3}{20}25 + 1.875 = 5.099
 \end{equation}
 
 So the second order polynomial approximates the function value at $x = 26$ exactly. What if we want to approximate the function value at $x=35$:
