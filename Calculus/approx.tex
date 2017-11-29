@@ -19,6 +19,8 @@ E(x) =& f(x) - L(x) = f(x) - f(a) - f'(a)(x-a)
 \begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
 \addplot[domain= 0:40, blue]{x^2};
 \addplot[domain= 0:40, red]{20*x-100};
+\addplot[domain= 0:20, dotted]{400};
+\addplot[domain= 0:20, dotted]{300};
 \addplot[
 scatter,
 only marks,
@@ -31,8 +33,6 @@ table[meta=label] {
       20 400 b
       20 300 c
       };
-%\draw [dotted] (0,400) -- (20,400);
-%\draw [dotted] (0,300) -- (20,300);
 \end{axis}
 \end{tikzpicture}
 \caption{The blue graph is $f(x)=x^2$ and the red $L(x)=20x-100$, where the red graph is the linerization $L(x)$ of $f(x)=x^2$ around $a=10$. The point $(20,f(20))$ is marked with a black triangle and the point $(20,L(20))$ is marked with a black square. As seen, there is a difference between $f(20)$ and $L(20)$, this difference is called the error.}
