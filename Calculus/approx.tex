@@ -13,6 +13,32 @@ This equation states that the approximated value of the function at the point $x
 E(x) =& f(x) - L(x) = f(x) - f(a) - f'(a)(x-a)
 \end{align}
 
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$f(x)$,enlargelimits]
+\addplot[domain= 0:40, blue]{x^2};
+\addplot[domain= 0:40, red]{20*x-100};
+\addplot[
+scatter,
+only marks,
+point meta=explicit symbolic,
+scatter/classes={b={mark=triangle*,draw=black},%
+c={mark=square*,black}},
+]
+table[meta=label] {
+      x y label
+      20 400 b
+      20 300 c
+      };
+%\draw [dotted] (0,400) -- (20,400);
+%\draw [dotted] (0,300) -- (20,300);
+\end{axis}
+\end{tikzpicture}
+\caption{The blue graph is $f(x)=x^2$ and the red $L(x)=20x-100$, where the red graph is the linerization $L(x)$ of $f(x)=x^2$ around $a=10$. The point $(20,f(20))$ is marked with a black triangle and the point $(20,L(20))$ is marked with a black square. As seen, there is a difference between $f(20)$ and $L(20)$, this difference is called the error.}
+\end{center}
+\end{figure}
+
 But how can we approximate the behaviour the function better and with less error. We use the Taylor polynomial to approximate the function. The linearization is a polynomial of degree $1$. The Taylor polynomial lets us approximate the function using higher degree polynomials about a point $a$. The Taylor polynomial is defined by:
 
 \begin{equation}
